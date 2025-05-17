@@ -1,0 +1,130 @@
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dashboard-header {
+    padding: 20px;
+    background: white;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-type {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Statistics Card */
+.stats-card {
+    text-align: center;
+}
+
+.stats-card p {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #007bff;
+}
+
+/* Alerts Card */
+.alerts-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.alert-item {
+    padding: 10px;
+    border-left: 4px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.alert-item.priority-high {
+    border-left-color: #dc3545;
+}
+
+.alert-item.priority-medium {
+    border-left-color: #ffc107;
+}
+
+.alert-item.priority-low {
+    border-left-color: #28a745;
+}
+
+.alert-time {
+    font-size: 0.8em;
+    color: #666;
+}
+
+/* Emergency Items */
+.emergency-item {
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+}
+
+.emergency-item.severity-high {
+    border-left: 4px solid #dc3545;
+}
+
+.emergency-item.severity-medium {
+    border-left: 4px solid #ffc107;
+}
+
+.emergency-item.severity-low {
+    border-left: 4px solid #28a745;
+}
+
+.emergency-item button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.emergency-item button:hover {
+    background: #0056b3;
+}
+
+/* Map Card */
+.map-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+#dashboard-map {
+    height: 500px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    .dashboard-header {
+        margin-left: 0;
+    }
+}
