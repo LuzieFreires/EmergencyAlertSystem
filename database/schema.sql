@@ -86,3 +86,14 @@ ALTER TABLE sms_logs
 ADD COLUMN twilio_sid VARCHAR(34) UNIQUE,
 ADD COLUMN twilio_status VARCHAR(20),
 ADD COLUMN error_message TEXT;
+
+
+CREATE TABLE activity_logs (
+    logID INT PRIMARY KEY AUTO_INCREMENT,
+    userID INT NOT NULL,
+    action VARCHAR(50) NOT NULL,
+    ip_address VARCHAR(45) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userID) REFERENCES users(userID)
+        ON DELETE CASCADE
+);

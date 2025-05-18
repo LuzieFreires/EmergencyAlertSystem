@@ -1,0 +1,116 @@
+[18-May-2025 07:03:48 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 21
+[18-May-2025 07:03:48 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 22
+[18-May-2025 07:03:48 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 23
+[18-May-2025 07:03:48 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 24
+[18-May-2025 07:05:23 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 21
+[18-May-2025 07:05:23 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 22
+[18-May-2025 07:05:23 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 23
+[18-May-2025 07:05:23 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 24
+[18-May-2025 07:07:14 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 21
+[18-May-2025 07:07:14 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 22
+[18-May-2025 07:07:14 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 23
+[18-May-2025 07:07:14 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 24
+[2025-05-18 07:09:13] Error: [8192] Constant FILTER_SANITIZE_STRING is deprecated in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\auth\register_handler.php on line 7
+[2025-05-18 07:09:13] Error: [8192] Constant FILTER_SANITIZE_STRING is deprecated in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\auth\register_handler.php on line 9
+[2025-05-18 07:09:13] Error: [8192] Constant FILTER_SANITIZE_STRING is deprecated in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\auth\register_handler.php on line 10
+[2025-05-18 07:09:13] Error: [8192] Constant FILTER_SANITIZE_STRING is deprecated in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\auth\register_handler.php on line 12
+[2025-05-18 07:09:13] Error: [8192] Constant FILTER_SANITIZE_STRING is deprecated in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\auth\register_handler.php on line 15
+[2025-05-18 07:09:13] Error: [8192] Constant FILTER_SANITIZE_STRING is deprecated in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\auth\register_handler.php on line 16
+[18-May-2025 07:09:19 Europe/Berlin] Login error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'emergency_alert_system.activity_logs' doesn't exist
+[2025-05-18 07:09:20] Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'emergency_alert_system.activity_logs' doesn't exist in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 123
+[2025-05-18 07:10:28] Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'emergency_alert_system.activity_logs' doesn't exist in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 123
+[2025-05-18 07:10:29] Error: [2] Undefined variable $conn in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\dashboard.php on line 41
+[18-May-2025 07:10:29 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\dashboard.php on line 41
+[2025-05-18 07:10:29] Exception: Call to a member function prepare() on null in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\dashboard.php on line 41
+[2025-05-18 07:10:34] Error: [2] Undefined variable $conn in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\dashboard.php on line 41
+[18-May-2025 07:10:34 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\dashboard.php on line 41
+[2025-05-18 07:10:34] Exception: Call to a member function prepare() on null in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\dashboard.php on line 41
+[2025-05-18 07:10:34] Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'emergency_alert_system.activity_logs' doesn't exist in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 123
+[2025-05-18 07:10:34] Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'emergency_alert_system.activity_logs' doesn't exist in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 123
+[2025-05-18 07:10:37] Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'emergency_alert_system.activity_logs' doesn't exist in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 123
+[2025-05-18 07:10:40] Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'emergency_alert_system.activity_logs' doesn't exist in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 123
+[18-May-2025 07:11:06 Europe/Berlin] PHP Warning:  require_once(C:\xamppppp\htdocs\EmergencyAlertSystem\classes\ErrorHandler.php): Failed to open stream: No such file or directory in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 33
+[18-May-2025 07:11:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'classes/ErrorHandler.php' (include_path='C:\xamppppp\php\PEAR') in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php:33
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\login.php(3): require_once()
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 33
+[18-May-2025 07:11:53 Europe/Berlin] PHP Warning:  require_once(C:\xamppppp\htdocs\EmergencyAlertSystem\classes\ErrorHandler.php): Failed to open stream: No such file or directory in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 26
+[18-May-2025 07:11:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'classes/ErrorHandler.php' (include_path='C:\xamppppp\php\PEAR') in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php:26
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\login.php(3): require_once()
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\config.php on line 26
+[18-May-2025 07:12:14 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'emergency_alert_system.activity_logs' doesn't exist in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php:123
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php(123): PDOStatement->execute(Array)
+#1 C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php(61): Auth->logActivity(1, 'logout')
+#2 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\login.php(5): Auth->logout()
+#3 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 123
+[18-May-2025 07:14:12 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\dashboard.php on line 41
+[18-May-2025 07:14:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\dashboard.php:41
+Stack trace:
+#0 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\dashboard.php on line 41
+[18-May-2025 07:15:56 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\settings.php on line 17
+[18-May-2025 07:15:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\settings.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\settings.php on line 17
+[18-May-2025 07:17:17 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 21
+[18-May-2025 07:17:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:21
+Stack trace:
+#0 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 21
+[18-May-2025 07:21:27 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 21
+[18-May-2025 07:21:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:21
+Stack trace:
+#0 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 21
+[18-May-2025 07:26:35 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''10' OFFSET '0'' at line 1 in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:23
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
+[18-May-2025 07:26:36 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65
+[18-May-2025 07:29:15 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''10' OFFSET '0'' at line 1 in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:23
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
+[18-May-2025 07:29:38 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''10' OFFSET '0'' at line 1 in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:23
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
+[18-May-2025 07:58:09 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''10' OFFSET '0'' at line 1 in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:23
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
+[18-May-2025 07:58:20 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''10' OFFSET '0'' at line 1 in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:23
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
+[18-May-2025 07:59:33 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''10' OFFSET '0'' at line 1 in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:23
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
+[18-May-2025 07:59:40 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''10' OFFSET '0'' at line 1 in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:23
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
+[18-May-2025 08:00:21 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''10' OFFSET '0'' at line 1 in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:23
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
+[18-May-2025 08:00:35 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''10' OFFSET '0'' at line 1 in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:23
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23

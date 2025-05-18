@@ -23,7 +23,7 @@ if (!isset($_SESSION['userID'])) {
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">       
         <?php include 'includes/sidebar.php'; ?>
         
         <div class="main-content">
@@ -69,5 +69,7 @@ if (!isset($_SESSION['userID'])) {
         </div>
     </div>
     <script src="../js/emergency-form.js"></script>
+    <script src="../js/main.js"></script>
+</body>
 </body>
 </html>

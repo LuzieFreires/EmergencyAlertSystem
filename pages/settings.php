@@ -5,6 +5,8 @@ require_once __DIR__ . '/../config.php';
 $auth = Auth::getInstance();
 $auth->requireLogin();
 
+$conn = Database::getInstance()->getConnection();
+
 if (!isset($_SESSION['userID'])) {
     header('Location: login.php');
     exit();
@@ -40,7 +42,7 @@ if ($userType === 'resident') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">       
         <?php include 'includes/sidebar.php'; ?>
         
         <div class="main-content">
@@ -118,8 +120,7 @@ if ($userType === 'resident') {
             </div>
         </div>
     </div>
-
-    <script src="../js/main.js"></script>
     <script src="../js/settings.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

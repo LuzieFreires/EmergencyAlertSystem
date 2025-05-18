@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../config.php';
-require_once '../classes/Auth.php';  
+require_once '../classes/Auth.php';
 $auth = Auth::getInstance();
 
 $auth->requireLogin();
@@ -22,6 +22,9 @@ $recentAlerts = [];
 $activeEmergencies = [];
 
 try {
+    // Get database connection
+    $conn = Database::getInstance()->getConnection();
+    
     if ($userType === 'responder') {
         // Get responder-specific stats
         $stmt = $conn->prepare("SELECT COUNT(*) as total_assigned FROM emergencies WHERE responderID = ? AND status != 'resolved'");
@@ -61,32 +64,13 @@ try {
     <title>Dashboard - Emergency Alert System</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <!-- Add this in the head section -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
-    <!-- Add this in the main content section -->
-    <div class="map-container">
-        <h3>Emergency Map</h3>
-        <div id="dashboard-map"></div>
-    </div>
 </head>
 <body>
-    <div class="container-fluid">
-    <?php include 'includes/sidebar.php'; ?>
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <h3>Emergency Alert System</h3>
-            </div>
-            <ul class="sidebar-menu">
-                <li class="active"><a href="dashboard.php">Dashboard</a></li>
-                <li><a href="emergency-form.php">Report Emergency</a></li>
-                <li><a href="alerts.php">Alerts</a></li>
-                <li><a href="settings.php">Settings</a></li>
-                <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </div>
+    <div class="container">       
+        <?php include 'includes/sidebar.php'; ?>
 
         <div class="main-content">
             <div class="dashboard-header">
@@ -144,17 +128,7 @@ try {
             </div>
         </div>
     </div>
-
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="../js/dashboard-map.js"></script>
     <script src="../js/main.js"></script>
-    <script>
-        // Initialize dashboard map
-        const dashboardMap = initMap();
-
-        // Function to view emergency details
-        function viewEmergencyDetails(emergencyID) {
-            window.location.href = `emergency-details.php?id=${emergencyID}`;
-        }
-    </script>
 </body>
 </html>

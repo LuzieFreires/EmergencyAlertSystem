@@ -4,6 +4,7 @@ require_once __DIR__ . '/../config.php';
 $auth = Auth::getInstance();
 
 $auth->requireLogin();
+$conn = Database::getInstance()->getConnection();
 
 if (!isset($_SESSION['userID'])) {
     header('Location: login.php');
@@ -39,7 +40,7 @@ $totalPages = ceil($totalAlerts / $limit);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">       
         <?php include 'includes/sidebar.php'; ?>
         
         <div class="main-content">
@@ -81,32 +82,7 @@ $totalPages = ceil($totalAlerts / $limit);
             </div>
         </div>
     </div>
-
-    <!-- Alert Creation Modal -->
-    <div id="alertModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Create New Alert</h3>
-            <form id="alertForm">
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="priorityLevel">Priority Level</label>
-                    <select id="priorityLevel" name="priorityLevel" required>
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                        <option value="critical">Critical</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">Create Alert</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="../js/main.js"></script>
     <script src="../js/alerts.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

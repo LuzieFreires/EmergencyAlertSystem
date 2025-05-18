@@ -52,8 +52,10 @@ if (isset($_GET['error'])) {
                 <input type="password" name="password" placeholder="Password" required>
             </div>
             <button type="submit">Login</button>
-            <p>Don't have an account? <a href="register.php">Register here</a></p>
+            <p class="register-link">Don't have an account? <a href="register.php">Register here</a></p>
         </form>
     </div>
+    <script src="../js/main.js"></script>
+</body>
 </body>
 </html>

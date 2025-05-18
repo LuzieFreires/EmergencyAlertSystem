@@ -10,9 +10,9 @@ function isActive($page) {
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
         <img src="../assets/logo.png" alt="EAS Logo" class="logo">
-        <h3>Emergency Alert System</h3>
+        <h3>Emergency Alert</h3>
         <button id="sidebar-toggle" class="sidebar-toggle">
-            <span></span>
+            <i class="fas fa-bars"></i>
         </button>
     </div>
 
@@ -44,20 +44,10 @@ function isActive($page) {
             </li>
             <?php endif; ?>
 
-            <?php if ($userType === 'responder'): ?>
-            <li class="<?php echo isActive('active-emergencies.php'); ?>">
-                <a href="active-emergencies.php">
-                    <i class="fas fa-ambulance"></i>
-                    <span>Active Emergencies</span>
-                </a>
-            </li>
-            <?php endif; ?>
-
             <li class="<?php echo isActive('alerts.php'); ?>">
                 <a href="alerts.php">
                     <i class="fas fa-bell"></i>
                     <span>Alerts</span>
-                    <span class="alert-badge" id="alertCount"></span>
                 </a>
             </li>
 

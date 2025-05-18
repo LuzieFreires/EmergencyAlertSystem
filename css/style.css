@@ -21,13 +21,14 @@ body {
 .sidebar {
     width: 260px;
     height: 100vh;
-    background: #2c3e50;
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
     position: fixed;
     left: 0;
     top: 0;
     color: #fff;
     transition: all 0.3s ease;
     z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar.collapsed {
@@ -45,6 +46,7 @@ body {
 .logo {
     width: 40px;
     height: 40px;
+    object-fit: contain;
 }
 
 .sidebar-header h3 {
@@ -52,6 +54,12 @@ body {
     font-size: 18px;
     white-space: nowrap;
     overflow: hidden;
+    transition: opacity 0.3s;
+}
+
+.sidebar.collapsed .sidebar-header h3 {
+    opacity: 0;
+    width: 0;
 }
 
 .sidebar-toggle {
@@ -60,6 +68,11 @@ body {
     color: #fff;
     cursor: pointer;
     padding: 5px;
+    transition: transform 0.3s;
+}
+
+.sidebar-toggle:hover {
+    transform: scale(1.1);
 }
 
 .user-info {
@@ -78,6 +91,12 @@ body {
 .user-details {
     white-space: nowrap;
     overflow: hidden;
+    transition: opacity 0.3s;
+}
+
+.sidebar.collapsed .user-details {
+    opacity: 0;
+    width: 0;
 }
 
 .user-name {
@@ -111,18 +130,42 @@ body {
     padding: 12px 20px;
     color: #fff;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
 }
 
 .sidebar-nav a:hover,
 .sidebar-nav li.active a {
     background: rgba(255, 255, 255, 0.1);
+    border-left-color: #3498db;
 }
 
 .sidebar-nav i {
     width: 20px;
     margin-right: 10px;
     text-align: center;
+}
+
+.sidebar-nav span {
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.3s;
+}
+
+.sidebar.collapsed .sidebar-nav span {
+    opacity: 0;
+    width: 0;
+}
+
+/* Main content adjustment */
+.main-content {
+    margin-left: 260px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+.sidebar.collapsed + .main-content {
+    margin-left: 70px;
 }
 
 .alert-badge {
@@ -135,10 +178,38 @@ body {
 }
 
 /* Main Content Adjustment */
+/* Reset container styles */
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+}
+
+/* Main content positioning */
 .main-content {
-    margin-left: 260px;
+    flex: 1;
     padding: 20px;
-    transition: all 0.3s ease;
+    margin-left: 260px; /* Match sidebar width */
+    transition: margin-left 0.3s;
+    background-color: #f4f4f4;
+}
+
+/* Adjust main content when sidebar is collapsed */
+.sidebar.collapsed + .main-content {
+    margin-left: 70px;
+}
+
+/* Ensure sidebar stays fixed */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
 }
 
 .main-content.expanded {
