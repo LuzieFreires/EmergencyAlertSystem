@@ -19,8 +19,11 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $limit = 10;
 $offset = ($page - 1) * $limit;
 
+// Fix: Cast parameters as integers and use them directly in the query
 $stmt = $conn->prepare("SELECT * FROM alerts ORDER BY timestamp DESC LIMIT ? OFFSET ?");
-$stmt->execute([$limit, $offset]);
+$stmt->bindValue(1, $limit, PDO::PARAM_INT);
+$stmt->bindValue(2, $offset, PDO::PARAM_INT);
+$stmt->execute();
 $alerts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Get total alerts count for pagination

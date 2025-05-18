@@ -114,3 +114,9 @@ Stack trace:
 #0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
 #1 {main}
   thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
+[18-May-2025 08:04:21 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''10' OFFSET '0'' at line 1 in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php:23
+Stack trace:
+#0 C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
+[18-May-2025 08:12:33 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65
