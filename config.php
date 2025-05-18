@@ -12,10 +12,10 @@ ini_set('error_log', __DIR__ . '/logs/error.log');
 
 
 // Database configuration
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'emergency_alert_system');
+define('DB_HOST', 'sql207.infinityfree.com');
+define('DB_USER', 'if0_39015275');
+define('DB_PASS', 'BhbcYiMrvo');
+define('DB_NAME', 'if0_39015275_emergency_alert_system');
 
 // Twilio Configuration
 putenv('TWILIO_ACCOUNT_SID=your_account_sid_here');
