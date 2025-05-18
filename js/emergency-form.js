@@ -55,7 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const response = await fetch('../pages/handlers/emergency_handler.php', {
                 method: 'POST',
-                body: formData
+                body: formData,
+                credentials: 'include'
             });
 
             const result = await response.json();

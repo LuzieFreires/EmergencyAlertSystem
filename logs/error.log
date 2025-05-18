@@ -121,3 +121,23 @@ Stack trace:
   thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
 [18-May-2025 08:12:33 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65
 [18-May-2025 08:46:42 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65
+[18-May-2025 09:50:46 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65
+[18-May-2025 09:55:19 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65
+[18-May-2025 10:20:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DEBUG" in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\handlers\emergency_handler.php:89
+Stack trace:
+#0 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\handlers\emergency_handler.php on line 89
+[18-May-2025 10:23:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DEBUG" in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\handlers\emergency_handler.php:89
+Stack trace:
+#0 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\handlers\emergency_handler.php on line 89
+[18-May-2025 10:27:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DEBUG" in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\handlers\emergency_handler.php:89
+Stack trace:
+#0 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\handlers\emergency_handler.php on line 89
+[18-May-2025 10:31:08 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65
+[18-May-2025 10:35:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DEBUG" in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\handlers\emergency_handler.php:89
+Stack trace:
+#0 {main}
+  thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\handlers\emergency_handler.php on line 89
+[18-May-2025 10:35:55 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65

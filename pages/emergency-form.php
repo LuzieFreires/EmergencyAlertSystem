@@ -30,6 +30,7 @@ if (!isset($_SESSION['userID'])) {
             <h2>Report Emergency</h2>
             <div class="emergency-form-container">
                 <form id="emergencyForm">
+                    <input type="hidden" name="csrf_token" value="<?php echo Security::generateCSRFToken(); ?>">
                     <div class="form-group">
                         <label for="type">Emergency Type</label>
                         <select id="type" name="type" required>

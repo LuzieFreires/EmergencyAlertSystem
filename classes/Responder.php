@@ -95,7 +95,7 @@ class Responder extends User {
                     'high',
                     $emergencyID
                 );
-                $alert->create();
+                $alert->createAlert();
                 
                 // Send SMS notification
                 $sms = new SMS();

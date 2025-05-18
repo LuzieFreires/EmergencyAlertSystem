@@ -71,6 +71,7 @@ try {
 <body>
     <div class="container">       
         <?php include 'includes/sidebar.php'; ?>
+        
 
         <div class="main-content">
             <div class="dashboard-header">

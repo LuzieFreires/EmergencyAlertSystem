@@ -55,7 +55,7 @@ class Alert {
                     'alertID' => $this->alertID
                 ];
                 
-                $smsOps->createSMSLog($smsData);
+                $smsOps->LogSMS($smsData);
                 
                 // Log alert history
                 $this->logAlertHistory($user['userID']);
@@ -90,3 +90,4 @@ class Alert {
     public function getPriorityLevel() { return $this->priorityLevel; }
     public function getEmergencyID() { return $this->emergencyID; }
 }
+
