@@ -1,4 +1,6 @@
 <?php
+ini_set('session.cookie_secure', '0');
+ini_set('session.cookie_httponly', '1');
 session_start();
 require_once '../config.php';
 require_once '../classes/Auth.php';

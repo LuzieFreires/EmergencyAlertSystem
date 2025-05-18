@@ -33,7 +33,7 @@ try {
     $description = Security::sanitizeInput($_POST['description'] ?? '');
 
     // Validate required fields
-    if (!$type || !$severityLevel || !$description) {
+    if (!$type || !$severityLevel) {
         throw new Exception('Missing required fields');
     }
 
