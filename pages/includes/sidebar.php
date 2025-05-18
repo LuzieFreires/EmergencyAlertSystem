@@ -52,6 +52,13 @@ function isActive($page) {
                 </a>
             </li>
 
+            <li class="<?php echo isActive('profile.php'); ?>">
+                <a href="profile.php">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+
             <li class="<?php echo isActive('settings.php'); ?>">
                 <a href="settings.php">
                     <i class="fas fa-cog"></i>
@@ -63,7 +70,6 @@ function isActive($page) {
                 <a href="auth/logout_handler.php" class="logout-link">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span>
-                    
                 </a>
             </li>
         </ul>
