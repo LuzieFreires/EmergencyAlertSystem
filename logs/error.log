@@ -178,3 +178,4 @@ Stack trace:
 [18-May-2025 15:24:03 Europe/Berlin] Settings update error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'updated_at' in 'field list'
 [18-May-2025 15:26:19 Europe/Berlin] Settings update error: There is no active transaction
 [18-May-2025 15:26:21 Europe/Berlin] Settings update error: There is no active transaction
+[18-May-2025 15:51:09 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65

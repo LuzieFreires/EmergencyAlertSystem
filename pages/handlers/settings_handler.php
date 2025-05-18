@@ -61,23 +61,26 @@ try {
             if ($userType !== 'resident') {
                 throw new Exception('Unauthorized access to medical information');
             }
+
+            if (!isset($_POST['medicalCondition'])) {
+                throw new Exception('Medical condition field is required');
+            }
+
             $data = [
                 'userType' => 'resident',
-                'medicalCondition' => $_POST['medicalCondition']
+                'medicalCondition' => trim($_POST['medicalCondition']),
+                // Include all required user fields
+                'email' => $_SESSION['user']['email'],
+                'contact_num' => $_SESSION['user']['contact_num'],
+                'location' => $_SESSION['user']['location'],
+                'name' => $_SESSION['user']['name'],
+                'age' => $_SESSION['user']['age']
             ];
-            $userOps->updateUser($userID, $data);
-            break;
 
-        case 'responderInfoForm':
-            if ($userType !== 'responder') {
-                throw new Exception('Unauthorized access to responder information');
-            }
-            $data = [
-                'userType' => 'responder',
-                'specialization' => $_POST['specialization'],
-                'availabilityStatus' => $_POST['availabilityStatus']
-            ];
             $userOps->updateUser($userID, $data);
+            
+            // Update session with new medical data
+            $_SESSION['additionalData']['medicalCondition'] = $data['medicalCondition'];
             break;
 
         case 'passwordForm':
@@ -85,6 +88,18 @@ try {
                 throw new Exception('Current password is required');
             }
             
+            if (empty($_POST['newPassword'])) {
+                throw new Exception('New password is required');
+            }
+
+            if (empty($_POST['confirmPassword'])) {
+                throw new Exception('Password confirmation is required');
+            }
+
+            if ($_POST['newPassword'] !== $_POST['confirmPassword']) {
+                throw new Exception('New passwords do not match');
+            }
+
             // Verify current password
             $stmt = Database::getInstance()->getConnection()->prepare(
                 "SELECT password FROM users WHERE userID = ?"
@@ -92,12 +107,13 @@ try {
             $stmt->execute([$userID]);
             $currentHash = $stmt->fetchColumn();
             
-            if (!password_verify($_POST['currentPassword'], $currentHash)) {
+            if (!$currentHash || !password_verify($_POST['currentPassword'], $currentHash)) {
                 throw new Exception('Current password is incorrect');
             }
-            
-            if (empty($_POST['newPassword'])) {
-                throw new Exception('New password is required');
+
+            // Validate new password strength
+            if (strlen($_POST['newPassword']) < 8) {
+                throw new Exception('New password must be at least 8 characters long');
             }
             
             $userOps->updatePassword($userID, password_hash($_POST['newPassword'], PASSWORD_DEFAULT));
@@ -109,8 +125,7 @@ try {
 
     echo json_encode([
         'success' => true,
-        'message' => 'Settings updated successfully',
-        'redirect' => isset($_POST['redirect']) ? $_POST['redirect'] : null
+        'message' => 'Settings updated successfully'
     ]);
 
 } catch (Exception $e) {
