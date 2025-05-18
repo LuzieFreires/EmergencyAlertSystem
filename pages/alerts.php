@@ -51,11 +51,11 @@ $totalPages = ceil($totalAlerts / $limit);
             <div class="alerts-container">
                 <?php if ($userType === 'responder'): ?>
                 <div class="alert-actions">
-                    <button id="createAlertBtn" class="btn-create">Create New Alert</button>
+                    <button id="createAlertBtn" class="btn-primary">Create New Alert</button>
                 </div>
                 <?php endif; ?>
 
-                <div class="alerts-list">
+                <div id="alerts-list" class="alerts-list">
                     <?php foreach ($alerts as $alert): ?>
                     <div class="alert-card priority-<?php echo htmlspecialchars($alert['priorityLevel']); ?>">
                         <div class="alert-header">
@@ -88,4 +88,33 @@ $totalPages = ceil($totalAlerts / $limit);
     <script src="../js/alerts.js"></script>
     <script src="../js/main.js"></script>
 </body>
+</html>
+
+    <!-- Alert Modal -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Create New Alert</h3>
+            <form id="alertForm">
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="priorityLevel">Priority Level</label>
+                    <select id="priorityLevel" name="priorityLevel" required>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Create Alert</button>
+            </form>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="../css/alerts.css">
+<script src="../js/alerts.js"></script>
+<script src="../js/main.js"></script>
 </html>

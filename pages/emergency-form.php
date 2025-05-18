@@ -51,8 +51,8 @@ if (!isset($_SESSION['userID'])) {
                     </div>
 
                     <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea id="description" name="description" required></textarea>
+                        <label for="description">Description (Optional)</label>
+                        <textarea id="description" name="description"></textarea>
                     </div>
 
                     <div class="form-group">

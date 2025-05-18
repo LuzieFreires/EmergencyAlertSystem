@@ -9,7 +9,7 @@ function isActive($page) {
 ?>
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-        <img src="../assets/logo.png" alt="EAS Logo" class="logo">
+        <img src="../css/img/emergencylogo.png" alt="EAS Logo" class="logo">
         <h3>Emergency Alert</h3>
         <button id="sidebar-toggle" class="sidebar-toggle">
             <i class="fas fa-bars"></i>

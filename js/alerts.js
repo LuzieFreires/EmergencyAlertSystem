@@ -76,3 +76,87 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('alertModal');
+    const createBtn = document.getElementById('createAlertBtn');
+    const closeBtn = document.querySelector('.close');
+    const alertForm = document.getElementById('alertForm');
+
+    if (createBtn) {
+        createBtn.onclick = () => modal.style.display = 'block';
+    }
+
+    if (closeBtn) {
+        closeBtn.onclick = () => modal.style.display = 'none';
+    }
+
+    window.onclick = (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+    if (alertForm) {
+        alertForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const formData = new FormData(alertForm);
+            try {
+                const response = await fetch('handlers/alert_handler.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to create alert');
+                }
+
+                showNotification('Alert created successfully', 'success');
+                modal.style.display = 'none';
+                alertForm.reset();
+                location.reload(); // Refresh to show new alert
+            } catch (error) {
+                showNotification(error.message, 'error');
+            }
+        };
+    }
+});
+
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 5000);
+}
+
+function editAlert(alertId) {
+    // Implement edit functionality
+    console.log('Edit alert:', alertId);
+}
+
+function deleteAlert(alertId) {
+    if (confirm('Are you sure you want to delete this alert?')) {
+        fetch(`handlers/alert_handler.php?action=delete&id=${alertId}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showNotification('Alert deleted successfully', 'success');
+                location.reload();
+            } else {
+                throw new Error(data.error || 'Failed to delete alert');
+            }
+        })
+        .catch(error => {
+            showNotification(error.message, 'error');
+        });
+    }
+}
