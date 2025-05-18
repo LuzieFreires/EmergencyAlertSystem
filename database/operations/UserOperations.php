@@ -56,18 +56,35 @@ class UserOperations {
 
     public function updateUser($userID, $data) {
         try {
+            // Validate required fields
+            $requiredFields = ['email', 'contact_num', 'location', 'name', 'age', 'userType'];
+            foreach ($requiredFields as $field) {
+                if (!isset($data[$field])) {
+                    throw new Exception("Missing required field: $field");
+                }
+            }
+
             $this->db->beginTransaction();
+
+            // First check if user exists
+            $checkSql = "SELECT userID FROM users WHERE userID = ?";
+            $checkStmt = $this->db->prepare($checkSql);
+            $checkStmt->execute([$userID]);
+            if (!$checkStmt->fetch()) {
+                throw new Exception('User not found');
+            }
 
             $sql = "UPDATE users SET 
                     email = :email,
                     contact_num = :contact_num,
                     location = :location,
                     name = :name,
-                    age = :age
+                    age = :age,
+                    updated_at = CURRENT_TIMESTAMP
                     WHERE userID = :userID";
             
             $stmt = $this->db->prepare($sql);
-            $stmt->execute([
+            $result = $stmt->execute([
                 'email' => $data['email'],
                 'contact_num' => $data['contact_num'],
                 'location' => $data['location'],
@@ -76,31 +93,50 @@ class UserOperations {
                 'userID' => $userID
             ]);
 
+            if (!$result) {
+                throw new Exception('Failed to update user data');
+            }
+
             // Update specific user type data
             if ($data['userType'] === 'responder') {
+                if (!isset($data['specialization'])) {
+                    throw new Exception('Specialization is required for responders');
+                }
+
                 $sql = "UPDATE responders SET 
-                        specialization = :specialization
+                        specialization = :specialization,
+                        updated_at = CURRENT_TIMESTAMP
                         WHERE responderID = :responderID";
                 $stmt = $this->db->prepare($sql);
-                $stmt->execute([
+                $result = $stmt->execute([
                     'specialization' => $data['specialization'],
                     'responderID' => $userID
                 ]);
+
+                if (!$result) {
+                    throw new Exception('Failed to update responder data');
+                }
             } else {
                 $sql = "UPDATE residents SET 
-                        medicalCondition = :medicalCondition
+                        medicalCondition = :medicalCondition,
+                        updated_at = CURRENT_TIMESTAMP
                         WHERE residentID = :residentID";
                 $stmt = $this->db->prepare($sql);
-                $stmt->execute([
-                    'medicalCondition' => $data['medicalCondition'],
+                $result = $stmt->execute([
+                    'medicalCondition' => $data['medicalCondition'] ?? null,
                     'residentID' => $userID
                 ]);
+
+                if (!$result) {
+                    throw new Exception('Failed to update resident data');
+                }
             }
 
             $this->db->commit();
             return true;
         } catch (Exception $e) {
             $this->db->rollBack();
+            error_log("Update user error: " . $e->getMessage());
             throw $e;
         }
     }

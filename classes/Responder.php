@@ -4,7 +4,7 @@ class Responder extends User {
     private $specialization;
     private $availabilityStatus;
     private $db;
-
+    
     public function __construct($email, $password, $contact_num, $location, $name, $age, $specialization) {
         parent::__construct($email, $password, $contact_num, $location, $name, $age);
         $this->specialization = $specialization;
@@ -100,7 +100,7 @@ class Responder extends User {
                 // Send SMS notification
                 $sms = new SMS();
                 $message = "Emergency #{$emergencyID} has been assigned to you. Please respond immediately.";
-                $sms->sendMessage($this->contact_num, $message);
+                $sms->sendSMS($this->contact_num, $message);
                 
                 return true;
             }
@@ -124,7 +124,7 @@ class Responder extends User {
                     'low',
                     $emergencyID
                 );
-                $alert->create();
+                $alert->createAlert();
                 
                 // Generate report
                 $emergency = new Emergency();
@@ -225,12 +225,11 @@ class Responder extends User {
             throw $e;
         }
     }
-
     // Getters
     public function getResponderID() { return $this->responderID; }
     public function getSpecialization() { return $this->specialization; }
     public function getAvailabilityStatus() { return $this->availabilityStatus; }
 
-    // Empty implementation of abstract method as responders don't request emergencies
+    // Abstract method implementation
     public function requestEmergency() { return false; }
 }

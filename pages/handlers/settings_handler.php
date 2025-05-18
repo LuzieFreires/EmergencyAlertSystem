@@ -18,15 +18,43 @@ try {
 
     switch ($formType) {
         case 'personalInfoForm':
+            // Validate required fields
+            $requiredFields = ['email', 'contact_num', 'location', 'name', 'age'];
+            foreach ($requiredFields as $field) {
+                if (!isset($_POST[$field]) || empty(trim($_POST[$field]))) {
+                    throw new Exception("$field is required");
+                }
+            }
+
+            // Validate age is numeric and within reasonable range
+            if (!is_numeric($_POST['age']) || $_POST['age'] < 1 || $_POST['age'] > 150) {
+                throw new Exception('Age must be a valid number between 1 and 150');
+            }
+
             $data = [
-                'email' => $_POST['email'],
-                'contact_num' => $_POST['contact_num'],
-                'location' => $_POST['location'],
-                'name' => $_POST['name'],
-                'age' => $_POST['age'],
+                'email' => trim($_POST['email']),
+                'contact_num' => trim($_POST['contact_num']),
+                'location' => trim($_POST['location']),
+                'name' => trim($_POST['name']),
+                'age' => (int)$_POST['age'],
                 'userType' => $userType
             ];
+
+            // Validate email format
+            if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                throw new Exception('Invalid email format');
+            }
+
             $userOps->updateUser($userID, $data);
+            
+            // Update session with new data
+            $_SESSION['user'] = [
+                'email' => $data['email'],
+                'name' => $data['name'],
+                'contact_num' => $data['contact_num'],
+                'location' => $data['location'],
+                'age' => $data['age']
+            ];
             break;
 
         case 'medicalInfoForm':
@@ -81,7 +109,8 @@ try {
 
     echo json_encode([
         'success' => true,
-        'message' => 'Settings updated successfully'
+        'message' => 'Settings updated successfully',
+        'redirect' => isset($_POST['redirect']) ? $_POST['redirect'] : null
     ]);
 
 } catch (Exception $e) {

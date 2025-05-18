@@ -15,12 +15,18 @@ if (!isset($_SESSION['userID'])) {
 $userID = $_SESSION['userID'];
 $userType = $_SESSION['userType'];
 
-// Get user data
+// Always fetch fresh data from database
 $stmt = $conn->prepare("SELECT * FROM users WHERE userID = ?");
 $stmt->execute([$userID]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Get additional data based on user type
+if (!$user) {
+    // Handle error - user not found
+    header('Location: login.php');
+    exit();
+}
+
+// Get fresh additional data based on user type
 if ($userType === 'resident') {
     $stmt = $conn->prepare("SELECT * FROM residents WHERE residentID = ?");
     $stmt->execute([$userID]);
@@ -30,6 +36,10 @@ if ($userType === 'resident') {
     $stmt->execute([$userID]);
     $additionalData = $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+// Cache the fresh data in session
+$_SESSION['user'] = $user;
+$_SESSION['additionalData'] = $additionalData;
 ?>
 <!DOCTYPE html>
 <html lang="en">

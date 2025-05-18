@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const formData = new FormData(this);
-            formData.append('form_type', formId); // Add form type to identify which section is being updated
+            formData.append('form_type', formId); // Identify which section is updated
 
             try {
                 const response = await fetch('../pages/handlers/settings_handler.php', {
@@ -27,15 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     credentials: 'include'
                 });
 
-                const result = await response.json();
-                if (result.success) {
-                    alert(`${formId.replace('Form', '')} updated successfully!`);
-                    if (formId === 'passwordForm') {
-                        // Clear password fields on successful update
-                        this.reset();
-                    }
+                const data = await response.json(); // Await the JSON conversion
+
+                if (data.success) {
+                    alert(data.message);
+                    window.location.href = 'profile.php';
                 } else {
-                    alert('Error: ' + result.message);
+                    alert(data.message || 'An error occurred');
                 }
             } catch (error) {
                 console.error('Error:', error);
