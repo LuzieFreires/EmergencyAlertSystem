@@ -6,9 +6,10 @@ class Database {
     private function __construct() {
         try {
             $this->conn = new PDO(
-                "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME,
+                "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8",
                 DB_USER,
-                DB_PASS
+                DB_PASS,
+                [PDO::ATTR_PERSISTENT => false]
             );
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
