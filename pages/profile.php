@@ -56,6 +56,11 @@ if ($userType === 'resident') {
                     </div>
 
                     <div class="info-group">
+                        <label>Age:</label>
+                        <span><?php echo htmlspecialchars($user['age']); ?></span>
+                    </div>
+
+                    <div class="info-group">
                         <label>Email:</label>
                         <span><?php echo htmlspecialchars($user['email']); ?></span>
                     </div>
