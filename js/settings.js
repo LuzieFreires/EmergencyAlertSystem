@@ -15,9 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const formData = new FormData(settingsForm);
         try {
-            const response = await fetch('../api/update-settings.php', {
+            const response = await fetch('../pages/handlers/settings_handler.php', {
                 method: 'POST',
-                body: formData
+                body: formData,
+                credentials: 'include' // Add this to ensure session is sent
             });
 
             const result = await response.json();

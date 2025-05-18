@@ -57,6 +57,11 @@ if ($userType === 'resident') {
                         </div>
 
                         <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" required>
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
                         </div>
