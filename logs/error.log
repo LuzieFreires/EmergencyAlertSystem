@@ -120,3 +120,4 @@ Stack trace:
 #1 {main}
   thrown in C:\xamppppp\htdocs\EmergencyAlertSystem\pages\alerts.php on line 23
 [18-May-2025 08:12:33 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65
+[18-May-2025 08:46:42 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xamppppp\htdocs\EmergencyAlertSystem\classes\Auth.php on line 65

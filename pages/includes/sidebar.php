@@ -11,6 +11,7 @@ function isActive($page) {
     <div class="sidebar-header">
         <img src="../css/img/emergencylogo.png" alt="EAS Logo" class="logo">
         <h3>Emergency Alert</h3>
+        <link rel="stylesheet" href="../css/style.css">
         <button id="sidebar-toggle" class="sidebar-toggle">
             <i class="fas fa-bars"></i>
         </button>
@@ -59,9 +60,10 @@ function isActive($page) {
             </li>
 
             <li>
-                <a href="auth/logout_handler.php">
+                <a href="auth/logout_handler.php" class="logout-link">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span>
+                    
                 </a>
             </li>
         </ul>

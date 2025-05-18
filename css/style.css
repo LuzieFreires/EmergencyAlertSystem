@@ -17,6 +17,7 @@ body {
     padding: 20px;
 }
 
+
 /* Sidebar Styles */
 .sidebar {
     width: 260px;
@@ -155,6 +156,10 @@ body {
 .sidebar.collapsed .sidebar-nav span {
     opacity: 0;
     width: 0;
+}
+
+.logout-link span {
+    color: red;
 }
 
 /* Main content adjustment */
