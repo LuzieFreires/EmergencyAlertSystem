@@ -48,9 +48,9 @@ if ($userType === 'resident') {
         <div class="main-content">
             <h2>Settings</h2>
             <div class="settings-container">
-                <form id="settingsForm">
-                    <div class="form-section">
-                        <h3>Personal Information</h3>
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <form id="personalInfoForm" class="settings-form">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($user['name']); ?>" required>
@@ -75,21 +75,27 @@ if ($userType === 'resident') {
                             <label for="location">Default Location</label>
                             <input type="text" id="location" name="location" value="<?php echo htmlspecialchars($user['location']); ?>" required>
                         </div>
-                    </div>
+                        <button type="submit" class="btn-save">Save Personal Information</button>
+                    </form>
+                </div>
 
-                    <?php if ($userType === 'resident'): ?>
-                    <div class="form-section">
-                        <h3>Medical Information</h3>
+                <?php if ($userType === 'resident'): ?>
+                <div class="form-section">
+                    <h3>Medical Information</h3>
+                    <form id="medicalInfoForm" class="settings-form">
                         <div class="form-group">
                             <label for="medicalCondition">Medical Conditions</label>
                             <textarea id="medicalCondition" name="medicalCondition"><?php echo htmlspecialchars($additionalData['medicalCondition']); ?></textarea>
                         </div>
-                    </div>
-                    <?php endif; ?>
+                        <button type="submit" class="btn-save">Save Medical Information</button>
+                    </form>
+                </div>
+                <?php endif; ?>
 
-                    <?php if ($userType === 'responder'): ?>
-                    <div class="form-section">
-                        <h3>Responder Information</h3>
+                <?php if ($userType === 'responder'): ?>
+                <div class="form-section">
+                    <h3>Responder Information</h3>
+                    <form id="responderInfoForm" class="settings-form">
                         <div class="form-group">
                             <label for="specialization">Specialization</label>
                             <input type="text" id="specialization" name="specialization" value="<?php echo htmlspecialchars($additionalData['specialization']); ?>" required>
@@ -101,11 +107,14 @@ if ($userType === 'resident') {
                                 <option value="0" <?php echo !$additionalData['availabilityStatus'] ? 'selected' : ''; ?>>Unavailable</option>
                             </select>
                         </div>
-                    </div>
-                    <?php endif; ?>
+                        <button type="submit" class="btn-save">Save Responder Information</button>
+                    </form>
+                </div>
+                <?php endif; ?>
 
-                    <div class="form-section">
-                        <h3>Change Password</h3>
+                <div class="form-section">
+                    <h3>Change Password</h3>
+                    <form id="passwordForm" class="settings-form">
                         <div class="form-group">
                             <label for="currentPassword">Current Password</label>
                             <input type="password" id="currentPassword" name="currentPassword">
@@ -118,10 +127,9 @@ if ($userType === 'resident') {
                             <label for="confirmPassword">Confirm New Password</label>
                             <input type="password" id="confirmPassword" name="confirmPassword">
                         </div>
-                    </div>
-
-                    <button type="submit" class="btn-save">Save Changes</button>
-                </form>
+                        <button type="submit" class="btn-save">Update Password</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
