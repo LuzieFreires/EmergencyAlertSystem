@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const formData = new FormData(this);
         try {
-            const response = await fetch('../pages/handlers/emergency_handler.php', {
+            const response = await fetch('handlers/emergency_handler.php', {
                 method: 'POST',
                 body: formData,
                 credentials: 'include'
@@ -64,11 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Emergency reported successfully!');
                 window.location.href = 'dashboard.php';
             } else {
-                alert('Error: ' + result.message);
+                alert('Error: ' + (result.error || 'Failed to submit emergency report'));
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('An error occurred while submitting the emergency report.');
+            alert('An error occurred while submitting the emergency report. Please try again.');
         }
     });
 });

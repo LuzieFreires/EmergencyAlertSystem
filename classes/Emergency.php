@@ -27,14 +27,7 @@ class Emergency {
     public function create() {
         try {
             $ops = new EmergencyOperations();
-            $data = [
-                'residentID' => $this->residentID,
-                'location' => $this->location,
-                'type' => $this->type,
-                'severityLevel' => $this->severityLevel,
-                'description' => $this->description
-            ];
-            $this->emergencyID = $ops->createEmergency($data);
+            $this->emergencyID = $ops->createEmergency($this);
             return $this->emergencyID;
         } catch (Exception $e) {
             error_log("Error creating emergency: " . $e->getMessage());

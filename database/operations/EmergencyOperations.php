@@ -9,31 +9,32 @@ class EmergencyOperations {
     public function createEmergency($data) {
         try {
             $this->db->beginTransaction();
-
+    
             $sql = "INSERT INTO emergencies (residentID, location, type, severityLevel, status) 
                     VALUES (:residentID, :location, :type, :severityLevel, 'pending')";
             
             $stmt = $this->db->prepare($sql);
             $stmt->execute([
-                'residentID' => $data['residentID'],
-                'location' => $data['location'],
-                'type' => $data['type'],
-                'severityLevel' => $data['severityLevel']
+                'residentID' => $data->getResidentID(),
+                'location' => $data->getLocation(),
+                'type' => $data->getType(),
+                'severityLevel' => $data->getSeverityLevel()
             ]);
-
+            
+    
             $emergencyID = $this->db->lastInsertId();
-
+    
             // Create alert for the emergency
             $sql = "INSERT INTO alerts (message, priorityLevel, emergencyID) 
                     VALUES (:message, :priorityLevel, :emergencyID)";
             
             $stmt = $this->db->prepare($sql);
             $stmt->execute([
-                'message' => "New {$data['type']} emergency reported!",
-                'priorityLevel' => $data['severityLevel'],
+                'message' => "New {$data->getType()} emergency reported!",
+                'priorityLevel' => $data->getSeverityLevel(),
                 'emergencyID' => $emergencyID
             ]);
-
+    
             $this->db->commit();
             return $emergencyID;
         } catch (Exception $e) {
@@ -41,7 +42,7 @@ class EmergencyOperations {
             throw $e;
         }
     }
-
+    
     public function assignResponder($emergencyID, $responderID) {
         try {
             $this->db->beginTransaction();
