@@ -123,4 +123,32 @@ class UserOperations {
         $stmt->execute(['userID' => $userID]);
         return $stmt->fetch();
     }
+
+    public function getAvailableResponders() {
+        $sql = "SELECT u.userID, u.contact_num 
+                FROM users u 
+                JOIN responders r ON u.userID = r.userID 
+                WHERE r.availabilityStatus = 'available'";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function updatePassword($userID, $hashedPassword) {
+        try {
+            $sql = "UPDATE users SET 
+                    password = :password,
+                    updated_at = CURRENT_TIMESTAMP
+                    WHERE userID = :userID";
+            
+            $stmt = $this->db->prepare($sql);
+            return $stmt->execute([
+                'password' => $hashedPassword,
+                'userID' => $userID
+            ]);
+        } catch (Exception $e) {
+            error_log("Error updating password: " . $e->getMessage());
+            throw $e;
+        }
+    }
 }

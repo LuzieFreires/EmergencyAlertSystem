@@ -51,11 +51,14 @@ class Resident extends User {
         }
     }
 
-    public function requestEmergency($type, $severityLevel, $description = '') {
+    public function requestEmergency($type, $severityLevel, $location = null, $description = '') {
         try {
+            // Use provided location or default to resident's location
+            $emergencyLocation = $location ?? $this->location;
+            
             $emergency = new Emergency(
                 $this->userID,
-                $this->location,
+                $emergencyLocation,
                 $type,
                 $severityLevel,
                 $description
@@ -63,10 +66,33 @@ class Resident extends User {
             
             $emergencyID = $emergency->create();
             
-            // Send SMS notification to available responders
-            $sms = new SMS();
-            $message = "New {$type} emergency reported at {$this->location}. Severity: {$severityLevel}";
-            $sms->notifyResponders($message);
+            // Get available responders
+            $responderOps = new UserOperations();
+            $availableResponders = $responderOps->getAvailableResponders();
+            
+            // Create Google Maps link from coordinates
+            $coordinates = explode(',', $emergencyLocation);
+            $mapLink = "https://www.google.com/maps?q={$coordinates[0]},{$coordinates[1]}";
+            
+            // Prepare message with map link
+            $message = "New {$type} emergency reported\n";
+            $message .= "Severity: {$severityLevel}\n";
+            $message .= "Location: {$mapLink}";
+            
+            if ($description) {
+                $message .= "\nDetails: {$description}";
+            }
+            
+            foreach ($availableResponders as $responder) {
+                try {
+                    $sms = new SMS($responder['contact_num'], $message);
+                    $sms->sendSMS();
+                } catch (Exception $e) {
+                    error_log("Failed to send SMS to responder {$responder['userID']}: " . $e->getMessage());
+                    // Continue sending to other responders even if one fails
+                    continue;
+                }
+            }
             
             return $emergencyID;
         } catch (Exception $e) {
